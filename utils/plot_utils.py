@@ -12,8 +12,6 @@ import numpy as np
 import joypy
 import os
 
-# Esse arquivo possui 14 plots diferetens para a task 2.
-
 def plot_result_metric(df_plot, xlabel, ylabel,title, huer=None):
     plt.figure(figsize=(12,8))
     sns.lineplot(data=df_plot, x='value', y='metric', hue=huer)
