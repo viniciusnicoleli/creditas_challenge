@@ -19,35 +19,6 @@ Input NA [DONE]
 collateral_debt: testar input por Pipeline [Mediana]
 collateral_debt: testar input por agrupamento na base de Treino
 
-informed_restriction: depende de informed_restriction?
-
-monthly_payment: é possível calcular?
-
-informed_purpose: 
-    Classificar as razões dirigidas e citar q esses são nulos
-    Criar uma moda para fazer o input das razões
-
-channel:
-    Baseada na landing_page pegar qual é a frequencia mais comum nesse caso.
-
-    Se a landing_page for nula então pega a moda com o Pipeline
-
-landing_page:
-    Acho que podemos dropar
-
-landing_page_product:
-    Usar a landing_page e pegar qual é o valor mais frequente daquela landing page, e definir como 1
-
-    Se landing_page nulo, usa a moda do Pipeline
-
-gender:
-    Input de -1
-
-utm_term: drop
-
-education_level:
-    Input via Moda
-
 
 
 
