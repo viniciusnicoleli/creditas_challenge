@@ -198,34 +198,36 @@ def plot_precision_recall_and_roc(y_true, y_pred, estimator_name="Estimator"):
     plt.tight_layout()
     plt.show()
 
-def plot_dist(y_train, pred_proba_train, y_val, pred_proba_val):
-    
-    fig, axs = plt.subplots(nrows = 1, ncols = 2, figsize = (22,12))
+def plot_dist(y_train, pred_proba_train, y_val, pred_proba_val, split):
+    fig, axs = plt.subplots(nrows = 1, ncols = 2, figsize = (16,6))
     plt.subplots_adjust(left = None, right = None, top = None, bottom = None, wspace = 0.2, hspace = 0.4)
-    
+
     vis = pd.DataFrame()
     vis['target'] = y_train
     vis['proba'] = pred_proba_train
-    
+
     list_1 = vis[vis.target == 1].proba
     list_2 = vis[vis.target == 0].proba
-    
-    sns.distplot(list_1, kde = True, ax = axs[0], hist = True, bins = 100)
-    sns.distplot(list_2, kde = True, ax = axs[0], hist = True, bins = 100)
-    
-    axs[0].set_title('train Thereshold Curve')
-    
+
+    sns.distplot(list_1, kde = True, ax = axs[0], hist = True, bins = 100, color = 'blue')
+    sns.distplot(list_2, kde = True, ax = axs[0], hist = True, bins = 100, color = 'red')
+
+    axs[0].set_title('Score Train Threshold Curve')
+
     vis = pd.DataFrame()
     vis['target'] = y_val
     vis['proba'] = pred_proba_val
-    
+
     list_1 = vis[vis.target == 1].proba
     list_2 = vis[vis.target == 0].proba
-    
-    sns.distplot(list_1, kde = True, ax = axs[1], hist = True, bins = 100)
-    sns.distplot(list_2, kde = True, ax = axs[1], hist = True, bins = 100)
-    
-    axs[1].set_title('val Thereshold Curve')
+
+    sns.distplot(list_1, kde = True, ax = axs[1], hist = True, bins = 100, color = 'blue')
+    sns.distplot(list_2, kde = True, ax = axs[1], hist = True, bins = 100, color = 'red')
+
+    axs[1].set_title(f'Score {split} Threshold Curve')  
+
+    plt.show(fig)
+    plt.close(fig) # Ajuda a evitar plotar o gráfico 2 vezes
 
 def get_feature_union_output_columns(df, pipeline_union):
     feature_names = []
